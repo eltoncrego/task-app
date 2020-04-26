@@ -1,7 +1,28 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
+import Task from './task';
+
+const Container = styled.div`
+  margin: 6px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+`;
+const Title = styled.h3`
+  padding: 8px;
+`;
+const TaskList = styled.div`
+  padding: 8px;
+`;
 
 const Column = ({ column, tasks }) => (
-  column.title
+  <Container>
+    <Title>{column.title}</Title>
+    <TaskList>
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
+    </TaskList>
+  </Container>
 );
 
 export default Column;
